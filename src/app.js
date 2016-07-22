@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
+import InputeForm from './InputForm';
+import Grid from './Grid';
+
 
 export default class App extends Component {
 
- test(){
-   alert("ok!!!");
- }
+
 
   render() {
     return (
-      <div>
-        <h1>Hello, world</h1>
-        <input type="button" value="aaaa" onClick={this.test} / >
+      <div className="container" style={{TopPadding:50}}>
+        <h2>NorthWind - Customer</h2>
+
+            <InputeForm />
+            <Grid />
+           
       </div>
     );
   }
