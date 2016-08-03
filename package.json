@@ -11,7 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "isomorphic-fetch": "2.2.1",
     "react": "15.2.1",
+    "react-addons-update": "15.2.1",
     "react-bootstrap": "0.30.0-rc.2",
     "react-dom": "15.2.1"
   },
