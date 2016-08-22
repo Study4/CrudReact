@@ -40,28 +40,26 @@ export default class App extends Component {
         if (response.status >= 400) {
             throw new Error("Bad response from server");
         }
-        let index = -1;
-        for(let i=0 ; i<this.state.data.length; i++)
-        {
-          if(this.state.data[i].employeeID == emp.employeeID)
-          {
-            index = i;
+        this.state.data.find( (item, i) => {
+          if(item.employeeID === emp.employeeID){
+            this.setState({
+              data: update(this.state.data,{$splice: [[i,1,emp]] } ),
+              emp: emp
+            })     
+            return;
           }
-        }
-        this.setState({
-            data: update(this.state.data,{$splice: [[index,1,emp]] } ),
-            emp: emp
-        })      
-      });
-      // .then( () => {
-        
-      //   //let item = this.state.items.filter((i) => { return i.employeeID === emp.employeeID }); 
-      //   // this.setState({
-      //   //     data: update(this.state.data,{item} {$push: [stories]})
-      //   // })
-      //   alert('Save Success');
-      // });
+        }); 
 
+        //or
+        // let index = this.state.data.findIndex( (item, i) => {
+        //   return item.employeeID === emp.employeeID
+        // });
+
+        // this.setState({
+        //     data: update(this.state.data,{$splice: [[index,1,emp]] } ),
+        //     emp: emp
+        // })     
+      });
   }
 
   add(emp){
